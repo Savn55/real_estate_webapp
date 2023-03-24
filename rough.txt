@@ -1,0 +1,63 @@
+
+put these in .gitignore to ignore this from commit.
+/static
+/media
+db.sqlite3
+
+create a startapp called pages
+put app (pages) in installed apps in settings
+create a templates>>pages>>(html files), also create base.html in templates
+within pages, create partials folder with html files for segmented navbar, topbar htmls.
+
+in templates base dir, put as'DIRS': [os.path.join(BASE_DIR, 'templates')],
+
+create new static folder inside project to put all static files (css, js, img, webfonts)
+for static files to be collected during deployment, need to be in static root
+    therefore, in settings, create 
+                STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+                STATIC_URL = 'static/'
+                STATICFILES_DIRS = [
+                    os.path.join(BASE_DIR, 'btre/static')
+                ]
+    when run python manage.py collectstatic, creates a static file alongside project
+
+Need to {% load static %} to use all static files in html files for (css, js, img) as 
+    they are kept within static file directory
+
+
+Note: for tabs to show highlighted(active), bootstraps does that, using if else to take care
+             {% if '/' == request.path %}
+                class="nav-item active mr-3"   --- this does that
+              {% else %}
+                class="nav-item mr-3"
+              {% endif %}
+
+for db connection, use postgresql as it is suitable for production 
+create database in pgadmin4 (downloaded with posgres)
+inside project setting, replace sqlite3(default) with posgres and db name, user, pw(master: 101010, local: 121212), host
+Now, run migrate, check pgadmin4 db schema to see changes
+
+create models using models.py in each apps.
+run makemigrations(creates file inside each app migration folder that has all model queries)
+run migrate command to actual migration, refresh pgadmin to see the change 
+
+create superuser, register models in respective admin.py of apps as 
+    from django.contrib import admin
+    from .models import Listing 
+    admin.site.register(Listing)
+
+uploaded media, need to add below on settings like static_root
+        #Media Folder Settings
+        MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+        MEDIA_URL = '/media/'
+media folder will be created alongside apps 
+
+in templates, base_site.html created for admin site 
+for extra styling, add admin.css in static>>css
+
+in view, import apps -- call app, create dict, and render dict too
+now in htmls, apply jinja for (if,else, for) and {{ for dynamic access }}
+apply pagination (see documentation) or use listings.html 
+
+
+
