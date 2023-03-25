@@ -152,11 +152,7 @@ MESSAGE_TAGS = {
 
 #Email config
 # didn't worked for me so skipping.
-# EAMIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587 
-# EMAIL_HOST_USER = 'sarojbhujel1998@gmail.com'
-# EMAIL_HOST_PASSWORD = 'cgkviiyqftmhvbuz'
-# EMAIL_USE_TLS = True 
+
 
 
 # for local setting
