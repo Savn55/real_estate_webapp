@@ -1,5 +1,5 @@
 # Real Estate WebApp 
-[**App**](https://www.savnproperties.site)
+[App](http://www.savnproperties.site)
 
 Welcome to the Real Estate WebApp, a Django-based platform for managing property listings and user queries. With this app, users can browse available properties, search for listings based on various criteria, and contact the assigned realtor for more information or to schedule a viewing. Users can also create accounts to save their favorite properties and manage their queries in a personalized dashboard.
 
